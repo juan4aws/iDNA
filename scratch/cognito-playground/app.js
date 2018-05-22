@@ -16,9 +16,9 @@ $(document).ready(function(){
          */
         this.cognitoData = {
 
-            identityPoolId: 'us-east-1:dca4d20c-31a7-0000-1234-XXXXYYYYZZZZ',
-            clientId: 'AAAABBBBCCCCl8tm0nohup1234',
-            userPoolId: 'us-east-1_AAAABBBBC'
+            identityPoolId: 'us-east-1:a0c54c93-f6e7-4a8b-9adf-a28ba69ffe6f',
+            clientId: '1ga8qjvieiuias7h163f4tqp0j',
+            userPoolId: 'us-east-1_aGRbGDGJN'
 
         };
         
