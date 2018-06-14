@@ -1,9 +1,16 @@
 # About
 
-This excercise will walk you through simple scenario of using Cognito to maintain a user pool and hosted UI to allow users to your new application to register, confirm their registration, and authenticate into your application. We will also show how to create your own UI using the cognito api to perform the same function - register, confirm, and authenticate. 
+This exercise will walk you through simple scenario of using Cognito to maintain a user pool and hosted UI to allow 
+users to your new application to register, confirm their registration, and authenticate into your application. We will 
+also show how to create your own UI using the cognito api to perform the same function - register, confirm, and 
+authenticate. 
+
+
 
 
 # Setup - Manual
+
+TODO
 
 
 # Setup - Cloud Formation
@@ -11,7 +18,8 @@ This excercise will walk you through simple scenario of using Cognito to maintai
 * execute the cloudformation template. 
 * when finished go to the outputs seciton of the template and note the keys displayed by the template. 
 * use these keys to populate the TODO section of idna_workshop_ex1_app.js
-* serve index.html using your IDE or local http server. I use http-server, a cli http server available here: https://github.com/indexzero/http-server
+* serve index.html using your IDE or local http server. I use http-server, a cli http server available here: 
+https://github.com/indexzero/http-server
 
 
 
@@ -32,7 +40,3 @@ https://node-alb-one-1981137585.us-east-1.elb.amazonaws.com/api/echo/get
 
 
 URL REQUEST Made usin callback url
-https://node-alb-one-1981137585.us-east-1.elb.amazonaws.com/api/echo/get#access_token=eyJraWQiOiJtXC80dklMXC9tMkg4bTZBREY3MDcxQlpyQUVZWUdcL1RHc0pOZTB5anRVSkQwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwZGJhZGI5My1mM2Q3LTQwMDItYjE2ZC1mMmJiMGJmZDMwYzYiLCJldmVudF9pZCI6IjIxY2ZkMjZlLTVmYjQtMTFlOC1hYzFjLTZmYzFjOWM1NDQ2OSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1MjcyMDg3OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX2FHUmJHREdKTiIsImV4cCI6MTUyNzIxMjM5MCwiaWF0IjoxNTI3MjA4NzkwLCJ2ZXJzaW9uIjoyLCJqdGkiOiI5MDA3OWZiOS1iNWM3LTQ2ZWItOGU1OC0zYmE4ZDA2MWVkYmMiLCJjbGllbnRfaWQiOiIxZ2E4cWp2aWVpdWlhczdoMTYzZjR0cXAwaiIsInVzZXJuYW1lIjoiamxhbWFkcmlkNCJ9.D7nMoYZgh_-r5QyjtPQwPjBn0aZaXRP8qd6e1aYZTqALD1Byx0ev4jlhEQObdfyByGUZFPPVcEg31qOtYRq1pE9Oqw_eTzXp1VZQkUSjhwNBdFCrs5BRyGTGeJDEEPeShcuRRNyCqb1No0hK2Yw9Q6cfKMNZHnJUHUKNn8bmiIqmMfPSVVLRAlsOxhSbJWHRfD6JWvRwZjk2nyAProiJYbKMqiPcXDDAGA_qiiXWWbsSt5qjdT50qsHzyrRvnLYkR0G5U4rTvvFaqlKCYE3gBq426Wm2Mv9TH516TJGpakG4CbJXd9k24yx_GrrayGKpGoYO_EcBtesYwRNqEb1s-g&expires_in=3600&token_type=Bearer
-
-
-"eyJraWQiOiJtXC80dklMXC9tMkg4bTZBREY3MDcxQlpyQUVZWUdcL1RHc0pOZTB5anRVSkQwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwZGJhZGI5My1mM2Q3LTQwMDItYjE2ZC1mMmJiMGJmZDMwYzYiLCJldmVudF9pZCI6ImMxZTQzMzUzLTVmYjQtMTFlOC05Nzk1LTA3MjYzNzA2MTI0MiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1MjcyMDkwNTgsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX2FHUmJHREdKTiIsImV4cCI6MTUyNzIxMjY1OCwiaWF0IjoxNTI3MjA5MDU4LCJqdGkiOiJkNWY5MTYzNS04YzFhLTRjMTctODlhZi05ZDMzOTgyMzBhNGUiLCJjbGllbnRfaWQiOiIxZ2E4cWp2aWVpdWlhczdoMTYzZjR0cXAwaiIsInVzZXJuYW1lIjoiamxhbWFkcmlkNCJ9.Kg14g4y-5jvUqkTQIjM4RNRk6qWrh5BU5_JGULQFfzZvkehtUF8gCpxlVxfKH5ovU06aVegEP4sVfEkCvHULy09k0YoCVOmNWk9VYQnTrZRjKcMDaZOv3TeGpy9j8dcKfQGZ2DKp2UhCDcYWPNnsnlg6qXrCM02m0NPFhf-x2IhaWH457qUFSHTxFR_I0qt4T-mcwp9WK9dCfocI10G8zuySltV1YFHb-qTt_6B81xHsBkQDh35pmbMRzKybUxL7NHnR2372YwxKO7RtG_BzsmXKOFVZ5BPjglcjbw79t-v4fzLDA4UD69aG2uqaVQe1N1OY2lfwtpi6MfN8A12ybQ"

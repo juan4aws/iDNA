@@ -10,7 +10,7 @@ $(document).ready(function(){
         this.cognitoCreds = null;
 
         /**
-         * TODO: replace Ids with values from cloud formation outputs tab
+         * STEP 1: replace Ids with values from cloud formation outputs tab
          * @type {{cognitoIdentityPoolId: string, cognitoUserPoolId: string, cognitoUserPoolClientId: string}}
          */
         this.cognitoConfigProperties = {
