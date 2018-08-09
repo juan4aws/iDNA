@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cognito Workshop: Exercise 1</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous"
+    >
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-3">Cognito: Exercise 1.</h1>
+            <p class="lead">Basic example demonstrating the core cognito functions of registering, confirming, and authenticating a user.</p>
+            <hr class="my-4">
+            <p>Please refer to the following documentation.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+        </div>
+
+        <!-- registration -->
+        <div class="card">
+
+            <div class="card-header">Step1: Register User </div>
+            <div class="card-block">
+                <p class="card-text" id="msgRegistered"></p>
+                <input id="txtUsername" placeholder="username">
+                <input id="txtPassword" placeholder="password" type="password" >
+                <input id="txtEmail"    placeholder="email">
+                <input id="txtPhoneNumber" placeholder="phone number">
+
+                <input type="button"
+                       id="btnRegisterUser"
+                       value="Register"
+                       class="btn btn-sm btn-primary"/>
+            </div>
+        </div>
+        <br/>
+
+        <!-- confirmation -->
+        <div class="card">
+
+            <div class="card-header">
+                Confirm User
+            </div>
+            <div class="card-block">
+                <p class="card-text" id="msgConfirmed"></p>
+                <form class="form-inline">
+                    <input id="txtConfirmationCode"
+                           placeholder="confirmation code"
+                           class="form-control">
+
+                    <input id="txtUsernameConfirm"
+                           placeholder="username"
+                           class="form-control">
+
+                    <button id="btnConfirmUser"
+                           class="btn btn-sm btn-primary">
+                        Confirm
+                    </button>
+                </form>
+
+            </div>
+        </div>
+        <br/>
+
+        <!-- authentication -->
+        <div class="card">
+
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-block">
+
+                <p class="card-text" id="msgLogin"></p>
+
+                    <div class="form-group">
+
+                        <input id="txtUsernameLogin"
+                               placeholder="username"
+                               class="form-control">
+
+                        <small id="help"
+                               class="form-text text-muted">
+                            NOTE: username, not email
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="txtPasswordLogin"
+                               placeholder="password"
+                               type="password"
+                               class="form-control">
+                    </div>
+                    <button id="btnLogin"
+                           class="btn btn-sm btn-primary">
+                        Login
+                    </button>
+
+            </div>
+        </div>
+        <br/>
+
+        <!-- login -->
+        <div class="card">
+            <div class="card-header">
+                Debug
+                <button id="btnClear"
+                        class="btn btn-sm btn-primary">
+                    Clear
+                </button>
+            </div>
+            <div class="card-block">
+
+                <div class="form-group">
+                    <textarea id="txtaDebug" class="form-control" id="exampleTextarea" rows="30"></textarea>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="dist/latest/aws-cognito-sdk.min.js"></script>
+    <script src="dist/latest/amazon-cognito-identity.js"></script>
+    <!-- optional: only if you use other AWS services -->
+    <script src="dist/aws-sdk.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="idna_workshop_ex1_app.js" ></script>
+
+</body>
+</html>

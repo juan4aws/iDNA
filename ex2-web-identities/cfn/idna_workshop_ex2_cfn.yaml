@@ -1,0 +1,140 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: iDNAWorkshop
+Resources:
+  CognitoUserPool:
+    Type: "AWS::Cognito::UserPool"
+    Properties:
+      UserPoolName:
+        Fn::Join:
+          - "_"
+          - - "idna_workshop_ex2_user_pool"
+            - Fn::Join:
+              - ""
+              - Fn::Split:
+                - "-"
+                - Fn::Select:
+                    - 2
+                    - Fn::Split:
+                      - "/"
+                      - !Ref "AWS::StackId"
+      AutoVerifiedAttributes: ['email']
+  CognitoUserPoolClient:
+    Type: "AWS::Cognito::UserPoolClient"
+    Properties:
+        ClientName:
+          Fn::Join:
+            - "_"
+            - - "idna_workshop_ex2_client"
+              - Fn::Join:
+                - ""
+                - Fn::Split:
+                  - "-"
+                  - Fn::Select:
+                      - 2
+                      - Fn::Split:
+                        - "/"
+                        - !Ref "AWS::StackId"
+        GenerateSecret: false
+        UserPoolId: !Ref CognitoUserPool
+  CognitoIdentityPool:
+    Type: "AWS::Cognito::IdentityPool"
+    Properties:
+      IdentityPoolName:
+        Fn::Join:
+          - "_"
+          - - "idna_workshop_ex2_identity_pool"
+            - Fn::Join:
+              - ""
+              - Fn::Split:
+                - "-"
+                - Fn::Select:
+                    - 2
+                    - Fn::Split:
+                      - "/"
+                      - !Ref "AWS::StackId"
+      CognitoIdentityProviders:
+        -
+          ClientId: !Ref CognitoUserPoolClient
+          ProviderName: !GetAtt CognitoUserPool.ProviderName
+      AllowUnauthenticatedIdentities: false
+  idnaWorkshopEX2AuthenticatedRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName:
+          Fn::Join:
+            - "_"
+            - - "idna_workshop_ex2_authenticated"
+              - Fn::Join:
+                - ""
+                - Fn::Split:
+                  - "-"
+                  - Fn::Select:
+                      - 2
+                      - Fn::Split:
+                        - "/"
+                        - !Ref "AWS::StackId"
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Principal:
+              Federated:
+              - cognito-identity.amazonaws.com
+            Action:
+            - sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                cognito-identity.amazonaws.com:aud:
+                - !Ref CognitoIdentityPool
+              ForAnyValue:StringLike:
+                cognito-identity.amazonaws.com:amr:
+                - "authenticated"
+        Path: "/"
+  RolePolicies:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName:
+        Fn::Join:
+          - "_"
+          - - "idna_workshop_ex2_role_policy"
+            - Fn::Join:
+              - ""
+              - Fn::Split:
+                - "-"
+                - Fn::Select:
+                    - 2
+                    - Fn::Split:
+                      - "/"
+                      - !Ref "AWS::StackId"
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action: "*"
+          Resource: "*"
+      Roles:
+      - !Ref idnaWorkshopEX2AuthenticatedRole
+
+  AuthenticatedRoleAttach:
+      Type: "AWS::Cognito::IdentityPoolRoleAttachment"
+      Properties:
+        IdentityPoolId: !Ref CognitoIdentityPool
+        Roles:
+          authenticated: !GetAtt idnaWorkshopEX2AuthenticatedRole.Arn
+
+Outputs:
+  CognitoUserPoolId:
+    Description: Cognito User Pool Id
+    Value: !Ref CognitoUserPool
+    Export:
+      Name: !Sub "${AWS::StackName}-CognitoUserPoolId"
+  CognitoIdentityPoolId:
+    Description: Cognito Identity  Pool Id
+    Value: !Ref CognitoIdentityPool
+    Export:
+      Name: !Sub "${AWS::StackName}-CognitoIdentityPoolId"
+  CognitoUserPoolClientId:
+    Description: User Pool Client Id
+    Value: !Ref CognitoUserPoolClient
+    Export:
+      Name: !Sub "${AWS::StackName}-CognitoUserPoolClientId"
